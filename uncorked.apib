@@ -1,0 +1,200 @@
+FORMAT: 1A
+HOST: http://uncorked.apiblueprint.org/
+
+# Uncorked
+
+Uncorked is a simple API that copies the functionality of Untappd app, but for wine.
+You can view this documentation over at [Apiary](http://docs.pollshypermedia.apiary.io/).
+
+# Uncorked API Root [/]
+
+This resource does not have any attributes. Instead it offers the initial API affordances.
+
+## Retrieve the Entrypoints [GET]
+
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "wineries": { "href": "/wineries" },
+                "styles": { "href": "/styles" }
+            }
+        }
+
+## Wineries Collection [/wineries{?page}]
+
++ Parameters
+    + page: 1 (optional, number) - The page of wineries to return
+
+### List All Wineries [GET]
+
++ Relation: wineries
+
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": { "href": "/wineries" },
+                "next": { "href": "/wineries?page=2" }
+            },
+            "_embedded": {
+                "winery": [
+                    {
+                        "_links": {
+                            "self": { "self": "/wineries/1" },
+                            "wines": { "href": "/wineries/1/wines", "title": "Wines by Danzante" }
+                        },
+                        "name": "Danzante",
+                        "country": "IT",
+                        "created_at": "2014-11-11T08:40:51.620Z"
+                    }
+                ]
+            }
+        }
+
+### Add a New Winery [POST]
+
+You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
+
++ name (string) - The name of the winery
++ country (string) - Country of origin (2-letter codes according to ISO 3166).
+
++ Relation: create
+
++ Request (application/json)
+
+        {
+            "name": "Danzante",
+            "country": "IT"
+        }
+
++ Response 201 (application/hal+json)
+
+        {
+            "_links": {
+                "self": { "self": "/wineries/1" },
+                "wines": { "href": "/wineries/1/wines", "title": "Wines by Danzante" }
+            },
+            "name": "Danzante",
+            "country": "IT",
+            "created_at": "2014-11-11T08:40:51.620Z"
+        }
+
+## Group Question
+
+Resources related to questions in the API.
+
+## Winery [/wineries/{winery_id}]
+
+A Question object has the following attributes:
+
++ question
++ published_at - An ISO8601 date when the question was published.
++ url
++ choices - An array of Choice objects.
+
++ Parameters
+    + question_id: 1 (required, number) - ID of the Question in form of an integer
+
+### View a Questions Detail [GET]
+
++ Relation: question
+
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": { "href": "/questions/1" }
+            },
+            "_embedded": {
+                "choices": [
+                    {
+                        "_links": {
+                            "self": { "self": "/questions/1/choices/1" }
+                        },
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "_links": {
+                            "self": { "self": "/questions/1/choices/2" }
+                        },
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "_links": {
+                            "self": { "self": "/questions/1/choices/3" }
+                        },
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "_links": {
+                            "self": { "self": "/questions/1/choices/4" }
+                        },
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            },
+            "published_at": "2014-11-11T08:40:51.620Z",
+            "question": "Favourite programming language?"
+        }
+
+## Wine [/breweries/{brewery_id}/brews/{brew_id}]
+
++ Parameters
+    + brewery_id: 1 (required, number) - ID of the Question in form of an integer
+    + brew_id: 1 (required, number) - ID of the Choice in form of an integer
+
+### View a Brew Detail [GET]
+
++ Relation: brew
+
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": { "href": "/breweries/1/brews/1" }
+            },
+            "name": "Tsarina Esra",
+            "abv": "11.1",
+            "plato": "23.4"
+        }
+
+### Vote on a Choice [POST]
+
+This action allows you to vote on a question's choice.
+
++ Relation: vote
+
++ Response 201 (application/vnd.siren+json)
+
+        {
+            "actions": [
+                {
+                    "name": "vote",
+                    "href": "/questions/1/choices/1",
+                    "method": "POST"
+                }
+            ],
+            "rel": [ "choice" ],
+            "properties": {
+                "choice": "Swift",
+                "votes": 2049
+            },
+            "links": [
+                {
+                    "rel": [ "self" ],
+                    "href": "/questions/1/choices/1"
+                }
+            ]
+        }
+
++ Response 201 (application/hal+json)
+
+        {
+            "_links": {
+                "self": "/questions/1/choices/1"
+            },
+            "choice": "Swift",
+            "votes": 2049
+        }
