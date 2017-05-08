@@ -8,7 +8,12 @@ require './ext/webmachine/jbuilder_view'
 require './ext/webmachine/linking/urlify'
 
 require './db/config'
+
 require './app/models/winery'
+require './app/models/user'
+require './app/models/wine'
+require './app/models/review'
+
 require './app/resources'
 
 App = Webmachine::Application.new do |app|
@@ -21,6 +26,12 @@ App = Webmachine::Application.new do |app|
 
     add ['wines'], WinesResource
     add ['wines', :id], WineResource
+
+    add ['wines', :id, 'reviews'], WineReviewsResource
+
+    add ['user', :id, 'reviews'], UserReviewsResource
+
+    add ['login'], LoginResource
 
     add [:*], EntrypointResource
   end

@@ -8,4 +8,8 @@ class WineriesResource < BaseResource
 
     @wineries.any?
   end
+
+  def protected_resource?
+    true
+  end
 end

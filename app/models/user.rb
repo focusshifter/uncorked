@@ -1,6 +1,6 @@
-class Winery < Sequel::Model
+class User < Sequel::Model
   plugin :uuid, field: :uuid
   plugin :timestamps
 
-  one_to_many :wines
+  one_to_many :reviews
 end

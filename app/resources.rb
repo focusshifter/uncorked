@@ -4,5 +4,7 @@ require './app/resources/winery_resource'
 require './app/resources/wine_resource'
 require './app/resources/wines_resource'
 require './app/resources/entrypoint_resource'
+require './app/resources/wine_reviews_resource'
+require './app/resources/user_reviews_resource'
 
 # include './app/resources/style'
