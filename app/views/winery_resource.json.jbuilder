@@ -4,9 +4,9 @@ json._links do |l|
     slf.title "Winery #{@winery.title}"
   end
 
-  l.wines do |wines|
-    wines.href url_for(WinesResource, winery_id: @winery.uuid)
-    wines.title "Wines of #{@winery.title}"
+  l.wines @winery.wines do |wine|
+    json.href url_for(WineResource, id: wine.uuid)
+    json.title "#{wine.title}"
   end
 end
 

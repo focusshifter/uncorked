@@ -6,5 +6,6 @@ json._links do |l|
 end
 
 json.email @user.email
+json.name @user.name
 json.created_at @user.created_at
 json.token @token

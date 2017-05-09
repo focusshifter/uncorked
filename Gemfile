@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'webmachine'
 gem 'webmachine-linking', github: 'Asmod4n/webmachine-linking'
 
+gem 'jwt'
 gem 'sequel'
 gem 'sqlite3'
-gem 'jwt'
 
 gem 'tilt-jbuilder'
 

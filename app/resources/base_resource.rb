@@ -54,7 +54,7 @@ class BaseResource < Webmachine::Resource
   end
 
   def generate_token(user)
-    @token = JWT.encode({ user_id: @user.id }, auth_secret, 'HS256')
+    @token = JWT.encode({ user_id: user.id }, auth_secret, 'HS256')
   end
 
   def logged_in?

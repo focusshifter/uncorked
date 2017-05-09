@@ -32,3 +32,14 @@ DB.create_table :reviews do
 
   index :created_at
 end
+
+DB.create_table :users do
+  primary_key :id
+  String :email, null: false
+  String :name
+  String :uuid, unique: true, null: false
+  DateTime :created_at
+  DateTime :updated_at
+
+  index :created_at
+end

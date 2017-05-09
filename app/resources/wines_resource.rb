@@ -4,10 +4,12 @@ class WinesResource < BaseResource
   end
 
   def resource_exists?
-    winery
+    true
   end
 
-  def winery
-    @winery ||= Winery.find(uuid: request.path_info[:winery_id])
+  def to_json
+    @wines = Wine.all
+
+    render
   end
 end
