@@ -9,7 +9,6 @@ class LoginResource < BaseResource
 
   def forbidden?
     email = params['email']
-    password = params['password']
 
     @user = User.find(email: email)
 
@@ -17,8 +16,7 @@ class LoginResource < BaseResource
   end
 
   def process_post
-    payload = { user_id: @user.id }
-    @token = JWT.encode(payload, auth_secret, 'HS256')
+    @token = generate_token(@user)
 
     response.headers['Content-Type'] = 'application/hal+json'
     response.body = render

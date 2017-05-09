@@ -1,0 +1,10 @@
+json._links do |l|
+  l.self do |slf|
+    slf.href url_for(SignupResource)
+    slf.title 'Signup'
+  end
+end
+
+json.email @user.email
+json.created_at @user.created_at
+json.token @token

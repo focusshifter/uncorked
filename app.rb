@@ -32,6 +32,7 @@ App = Webmachine::Application.new do |app|
     add ['user', :id, 'reviews'], UserReviewsResource
 
     add ['login'], LoginResource
+    add ['signup'], SignupResource
 
     add [:*], EntrypointResource
   end

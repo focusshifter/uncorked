@@ -22,11 +22,13 @@ class BaseResource < Webmachine::Resource
     render
   end
 
-  def prepare_data
-  end
-
   def params
     @params ||= JSON.parse(request.body.to_s)
+  end
+
+  def json_validation_errors(object)
+    response.body = object.errors.to_json
+    400
   end
 
   def auth_secret
@@ -41,18 +43,22 @@ class BaseResource < Webmachine::Resource
     token = authorization_header.scan(/Bearer (.*)$/).flatten.last
 
     authorize(token)
+
+    logged_in?
   end
 
   def authorize(token)
     auth = JWT.decode(token, auth_secret, true, algorithm: 'HS256').first
 
     @current_user = User.find(auth['user_id'])
+  end
 
-    !!current_user
+  def generate_token(user)
+    @token = JWT.encode({ user_id: @user.id }, auth_secret, 'HS256')
   end
 
   def logged_in?
-    current_user
+    !!current_user
   end
 
   def protected_resource?
