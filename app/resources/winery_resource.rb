@@ -4,6 +4,10 @@ class WineryResource < BaseResource
   end
 
   def resource_exists?
-    @winery = Winery.find(uuid: request.path_info[:id])
+    winery
+  end
+
+  def winery
+    @winery ||= Winery.find(uuid: request.path_info[:id])
   end
 end

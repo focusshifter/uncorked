@@ -5,6 +5,7 @@ gem 'webmachine-linking', github: 'Asmod4n/webmachine-linking'
 
 gem 'sequel'
 gem 'sqlite3'
+gem 'jwt'
 
 gem 'tilt-jbuilder'
 

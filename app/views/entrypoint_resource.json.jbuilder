@@ -14,6 +14,11 @@ json._links do |l|
     wines.title 'The collection of Wines'
   end
 
+  l.login do |login|
+    login.href url_for(LoginResource)
+    login.title 'Get an auth token'
+  end
+
   # l.styles do |styles|
   #   styles.href url_for(StylesResource)
   # end
