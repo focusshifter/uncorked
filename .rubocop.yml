@@ -1,0 +1,5 @@
+Style/PredicateName:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 99

@@ -4,6 +4,20 @@ class WineResource < BaseResource
   end
 
   def resource_exists?
-    @wine = Wine.find(uuid: request.path_info[:id])
+    wine
+  end
+
+  def protected_resource?
+    true
+  end
+
+  def wine
+    @wine ||= Wine.find(uuid: request.path_info[:id])
+  end
+
+  def delete_resource
+    wine.destroy
+
+    true
   end
 end

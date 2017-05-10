@@ -1,10 +1,14 @@
 class WineryResource < BaseResource
   def allowed_methods
-    %w[GET HEAD]
+    %w[GET HEAD DELETE]
   end
 
   def resource_exists?
     winery
+  end
+
+  def protected_resource?
+    true
   end
 
   def winery

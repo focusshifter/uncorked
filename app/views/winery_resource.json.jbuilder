@@ -1,3 +1,5 @@
+json.ignore_nil!
+
 json._links do |l|
   l.self do |slf|
     slf.href url_for(WineryResource, id: @winery.uuid)
@@ -6,7 +8,7 @@ json._links do |l|
 
   l.wines @winery.wines do |wine|
     json.href url_for(WineResource, id: wine.uuid)
-    json.title "#{wine.title}"
+    json.title wine.title
   end
 end
 

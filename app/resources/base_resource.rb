@@ -26,13 +26,18 @@ class BaseResource < Webmachine::Resource
     @params ||= JSON.parse(request.body.to_s)
   end
 
+  def json_errors(errors)
+    response.body = { errors: errors }.to_json
+    400
+  end
+
   def json_validation_errors(object)
-    response.body = object.errors.to_json
+    response.body = { errors: object.errors }.to_json
     400
   end
 
   def auth_secret
-    "Sw\xAC\xCBGg\xD8q<I\x8Di#\f\xE7\xECd\v\xBE\xD6\xAA\xC0\xEE\xA1\xF5\xC4\x8D\xA0\xEB\xA5\xEC\xE9"
+    ENV['AUTH_SECRET']
   end
 
   def is_authorized?(authorization_header)

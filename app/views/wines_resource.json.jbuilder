@@ -1,3 +1,5 @@
+json.ignore_nil!
+
 json._links do |l|
   l.self do |slf|
     slf.href url_for(WinesResource)
@@ -10,12 +12,12 @@ json._embedded do
     json._links do |l|
       l.self do |slf|
         slf.href url_for(WineResource, id: wine.uuid)
-        slf.title "#{wine.title}"
+        slf.title wine.title
       end
 
       l.winery do |winery|
         winery.href url_for(WineryResource, id: wine.winery.uuid)
-        winery.title "#{wine.winery.title}"
+        winery.title wine.winery.title
       end
     end
 

@@ -11,7 +11,9 @@ class WineReviewsResource < BaseResource
     @wine ||= Wine.find(uuid: request.path_info[:id])
   end
 
-  def prepare_data
+  def to_json
     @reviews ||= Review.where(wine_id: wine.id).all
+
+    render
   end
 end

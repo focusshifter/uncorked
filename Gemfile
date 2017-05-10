@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rack'
 gem 'webmachine'
 gem 'webmachine-linking', github: 'Asmod4n/webmachine-linking'
 
@@ -13,7 +14,10 @@ group :development, :test do
   gem 'reek'
   gem 'rubocop'
 
-  # gem 'rspec'
+  gem 'cucumber'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rack-test'
   #
   # gem 'codeclimate-test-reporter', '~> 1.0.0', require: false
   # gem 'simplecov', require: false

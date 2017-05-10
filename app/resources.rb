@@ -1,14 +1,19 @@
-require './app/resources/base_resource'
+RESOURCES = [
+  'base',
 
-require './app/resources/wineries_resource'
-require './app/resources/winery_resource'
+  'wineries',
+  'winery',
 
-require './app/resources/wines_resource'
-require './app/resources/wine_resource'
+  'wines',
+  'wine',
 
-require './app/resources/wine_reviews_resource'
-require './app/resources/user_reviews_resource'
+  'entrypoint',
+  'signup',
+  'login'
+]
 
-require './app/resources/entrypoint_resource'
-require './app/resources/login_resource'
-require './app/resources/signup_resource'
+current_path = File.dirname(__FILE__)
+
+RESOURCES.each do |resource|
+  require File.join(current_path, 'resources', "#{resource}_resource")
+end
