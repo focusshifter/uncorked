@@ -7,7 +7,7 @@ Feature: Wineries
       | Fanagoria |
     When the client does a GET request to "/wineries"
     Then the response status should be "200"
-    
+
 
   Scenario: Add a new winery
     Given the client is authorized
@@ -42,3 +42,5 @@ Feature: Wineries
     Then the response status should be "200"
     And the response "title" should equal "Fanagoria"
     And the response "_links.wines" should have 1 item
+
+  Scenario: Delete a winery

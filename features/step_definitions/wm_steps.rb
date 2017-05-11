@@ -1,5 +1,5 @@
 When(/^the client does a GET request to "([^"]*)"$/) do |path|
-  get path
+  get path, {}, 'CONTENT_TYPE' => 'application/json'
 end
 
 When(/^the client does a POST request to "([^"]*)" with the following content:$/) do |path, body|
@@ -7,7 +7,11 @@ When(/^the client does a POST request to "([^"]*)" with the following content:$/
 end
 
 Given(/^the client is authorized$/) do
-  header 'Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.2VByW6IFUhAo4846CDwJHOCGN0AMeScni-hivpuIK5k'
+  User.create(email: 'test@example.net')
+
+  post '/login', '{"email": "test@example.net"}', 'CONTENT_TYPE' => 'application/json'
+  token = JSON.parse(last_response.body).dig('token')
+  header 'Authorization', "Bearer #{token}"
 end
 
 Given(/^the set of "([^"]*)" exist:$/) do |model_class, rows|
