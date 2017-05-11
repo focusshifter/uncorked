@@ -12,7 +12,7 @@ json._embedded do
     json._links do |l|
       l.self do |slf|
         slf.href url_for(WineryResource, id: winery.uuid)
-        slf.title "Winery #{winery.title}"
+        slf.title winery.title
       end
     end
 

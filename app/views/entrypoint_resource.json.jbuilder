@@ -20,8 +20,4 @@ json._links do |l|
     login.href url_for(LoginResource)
     login.title 'Get an auth token'
   end
-
-  # l.styles do |styles|
-  #   styles.href url_for(StylesResource)
-  # end
 end

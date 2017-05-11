@@ -21,7 +21,25 @@ Given(/^the set of "([^"]*)" exist:$/) do |model_class, rows|
   model.restrict_primary_key
 end
 
-
 Then(/^the response status should be "([^\"]*)"$/) do |status|
   expect(last_response.status).to eq(status.to_i)
+end
+
+Then(/^the response "([^"]*)" should equal "([^"]*)"$/) do |field_path, value|
+  target = field_path.split('.')
+  expect(JSON.parse(last_response.body).dig(*target)).to eq(value)
+end
+
+Then(/^the response "([^"]*)" should have (\d+) item|items$/) do |field_path, count|
+  target = field_path.split('.')
+  expect(JSON.parse(last_response.body).dig(*target).size).to eq(count.to_i)
+end
+
+Then(/^the response should have "([^"]*)"$/) do |field_path|
+  target = field_path.split('.')
+  expect(JSON.parse(last_response.body).dig(*target)).to be
+end
+
+Then(/^the response should include the following:$/) do |json|
+  expect(JSON.parse(last_response.body)).to include(JSON.parse(json))
 end

@@ -16,8 +16,8 @@ group :development, :test do
 
   gem 'cucumber'
   gem 'database_cleaner'
-  gem 'rspec'
   gem 'rack-test'
+  gem 'rspec'
   #
   # gem 'codeclimate-test-reporter', '~> 1.0.0', require: false
   # gem 'simplecov', require: false

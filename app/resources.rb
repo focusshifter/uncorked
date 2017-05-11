@@ -1,16 +1,16 @@
-RESOURCES = [
-  'base',
+RESOURCES = %w[
+  base
 
-  'wineries',
-  'winery',
+  wineries
+  winery
 
-  'wines',
-  'wine',
+  wines
+  wine
 
-  'entrypoint',
-  'signup',
-  'login'
-]
+  entrypoint
+  signup
+  login
+].freeze
 
 current_path = File.dirname(__FILE__)
 
