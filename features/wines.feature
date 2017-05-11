@@ -89,6 +89,21 @@ Feature: Wines
     And the response should have "id"
     And the response "_links.winery.href" should equal "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
 
+  Scenario: Add a new winery without required fields
+    Given the client is authorized
+    And the set of "Winery" exist:
+      | id | title       | uuid                                 |
+      | 1  | Fanagoria   | 7dabbec1-e299-4037-a027-428b15f7fe4d |
+      | 2  | Abrau Durso | c8ef659e-93dc-47d9-bd30-edf153aaf61e |
+    When the client does a POST request to "/wines" with the following content:
+    """
+      {
+        "title": "Cru Lermont Saperavi"
+      }
+    """
+    Then the response status should be "400"
+    And the response should have "errors"
+
   Scenario: View a selected wine
     Given the client is authorized
     And the set of "Winery" exist:

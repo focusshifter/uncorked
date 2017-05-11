@@ -11,7 +11,7 @@ class Wine < Sequel::Model
 
   def validate
     super
-    validates_presence [:title, :winery_id]
+    validates_presence %i[title winery_id]
     validates_unique :uuid
   end
 end

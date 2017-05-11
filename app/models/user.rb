@@ -10,7 +10,7 @@ class User < Sequel::Model
 
   def validate
     super
-    validates_presence [:email, :name]
-    validates_unique [:email, :uuid]
+    validates_presence %i[email name]
+    validates_unique %i[email uuid]
   end
 end

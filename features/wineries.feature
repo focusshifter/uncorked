@@ -46,6 +46,15 @@ Feature: Wineries
     And the response "title" should equal "Fanagoria"
     And the response should have "id"
 
+  Scenario: Add a new winery without required fields
+    Given the client is authorized
+    When the client does a POST request to "/wineries" with the following content:
+    """
+      {}
+    """
+    Then the response status should be "400"
+    And the response should have "errors"
+
   Scenario: View a selected winery
     Given the client is authorized
     And the set of "Winery" exist:

@@ -8,7 +8,7 @@ class Review < Sequel::Model
 
   def validate
     super
-    validates_presence [:title, :rating, :wine_id, :user_id]
+    validates_presence %i[title rating wine_id user_id]
     validates_unique :uuid
   end
 end
