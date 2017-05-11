@@ -14,4 +14,10 @@ class WineryResource < BaseResource
   def winery
     @winery ||= Winery.find(uuid: request.path_info[:id])
   end
+
+  def delete_resource
+    winery.destroy
+
+    true
+  end
 end

@@ -16,6 +16,7 @@ json._embedded do
       end
     end
 
+    json.id winery.uuid
     json.title winery.title
   end
 end

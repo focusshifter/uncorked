@@ -21,6 +21,7 @@ json._embedded do
       end
     end
 
+    json.id wine.uuid
     json.title wine.title
   end
 end

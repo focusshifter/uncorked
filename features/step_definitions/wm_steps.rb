@@ -6,6 +6,10 @@ When(/^the client does a POST request to "([^"]*)" with the following content:$/
   post path, body, 'CONTENT_TYPE' => 'application/json'
 end
 
+When(/^the client does a DELETE request to "([^"]*)"$/) do |path|
+  delete path, {}, 'CONTENT_TYPE' => 'application/json'
+end
+
 Given(/^the client is authorized$/) do
   User.create(email: 'test@example.net')
 
@@ -25,8 +29,18 @@ Given(/^the set of "([^"]*)" exist:$/) do |model_class, rows|
   model.restrict_primary_key
 end
 
+Then(/^the collection "([^"]*)" should have (\d+) (item|items)$/) do |model_class, count, _items|
+  model = Object.const_get(model_class)
+  expect(model.count).to eq(count.to_i)
+end
+
 Then(/^the response status should be "([^\"]*)"$/) do |status|
-  expect(last_response.status).to eq(status.to_i)
+  begin
+    expect(last_response.status).to eq(status.to_i)
+  rescue RSpec::Expectations::ExpectationNotMetError => e
+    puts last_response.body
+    raise e
+  end
 end
 
 Then(/^the response "([^"]*)" should equal "([^"]*)"$/) do |field_path, value|
@@ -34,7 +48,7 @@ Then(/^the response "([^"]*)" should equal "([^"]*)"$/) do |field_path, value|
   expect(JSON.parse(last_response.body).dig(*target)).to eq(value)
 end
 
-Then(/^the response "([^"]*)" should have (\d+) item|items$/) do |field_path, count|
+Then(/^the response "([^"]*)" should have (\d+) (item|items)$/) do |field_path, count, _items|
   target = field_path.split('.')
   expect(JSON.parse(last_response.body).dig(*target).size).to eq(count.to_i)
 end
@@ -45,5 +59,10 @@ Then(/^the response should have "([^"]*)"$/) do |field_path|
 end
 
 Then(/^the response should include the following:$/) do |json|
-  expect(JSON.parse(last_response.body)).to include(JSON.parse(json))
+  begin
+    expect(JSON.parse(last_response.body)).to include(JSON.parse(json))
+  rescue RSpec::Expectations::ExpectationNotMetError => e
+    puts last_response.body
+    raise e
+  end
 end

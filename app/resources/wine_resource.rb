@@ -1,6 +1,6 @@
 class WineResource < BaseResource
   def allowed_methods
-    %w[GET HEAD]
+    %w[GET HEAD DELETE]
   end
 
   def resource_exists?

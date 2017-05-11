@@ -12,6 +12,7 @@ json._links do |l|
   end
 end
 
+json.id @winery.uuid
 json.title @winery.title
 json.created_at @winery.created_at
 json.updated_at @winery.updated_at
