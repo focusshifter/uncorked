@@ -9,6 +9,9 @@ require 'database_cleaner/cucumber'
 ENV['RACK_ENV'] = 'test'
 ENV['AUTH_SECRET'] = "Sw\xAC\xCBGg\xD8q<I\x8Di#\f\xE7\xECd\v\xBE\xD6\xAA\xC0\xEE\xA1\xF5\xC4\x8D\xA0\xEB\xA5\xEC\xE9"
 
+require 'simplecov'
+SimpleCov.start
+
 require File.join(File.dirname(__FILE__), '..', '..', 'app', 'app')
 
 DatabaseCleaner[:sequel].strategy = :truncation
