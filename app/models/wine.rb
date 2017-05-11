@@ -1,3 +1,6 @@
+# = Wine
+#
+# Wine by Winery
 class Wine < Sequel::Model
   plugin :uuid, field: :uuid
   plugin :timestamps
@@ -11,7 +14,7 @@ class Wine < Sequel::Model
 
   def validate
     super
-    validates_presence %i[title winery_id]
+    validates_presence %i[title winery]
     validates_unique :uuid
   end
 end

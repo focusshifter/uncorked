@@ -24,7 +24,7 @@ end
 
 DB.create_table :reviews do
   primary_key :id
-  String :title, null: false
+  String :summary, null: false
   Integer :rating, null: false
   String :uuid, unique: true, null: false
   DateTime :created_at

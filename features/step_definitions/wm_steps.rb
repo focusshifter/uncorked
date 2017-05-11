@@ -11,7 +11,9 @@ When(/^the client does a DELETE request to "([^"]*)"$/) do |path|
 end
 
 Given(/^the client is authorized$/) do
-  User.create(email: 'test@example.net', name: 'Test User')
+  User.unrestrict_primary_key
+  User.create(id: 1, email: 'test@example.net', name: 'Test User')
+  User.restrict_primary_key
 
   post '/login', '{"email": "test@example.net"}', 'CONTENT_TYPE' => 'application/json'
   token = JSON.parse(last_response.body).dig('token')
@@ -46,6 +48,11 @@ end
 Then(/^the response "([^"]*)" should equal "([^"]*)"$/) do |field_path, value|
   target = field_path.split('.')
   expect(JSON.parse(last_response.body).dig(*target)).to eq(value)
+end
+
+Then(/^the response "([^"]*)" should equal (\d+)$/) do |field_path, value|
+  target = field_path.split('.')
+  expect(JSON.parse(last_response.body).dig(*target)).to eq(value.to_i)
 end
 
 Then(/^the response "([^"]*)" should have (\d+) (item|items)$/) do |field_path, count, _items|

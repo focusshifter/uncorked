@@ -1,3 +1,6 @@
+# = User
+#
+# Basic User model, used for auth (and to publish reviews)
 class User < Sequel::Model
   plugin :uuid, field: :uuid
   plugin :timestamps

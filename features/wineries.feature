@@ -79,7 +79,7 @@ Feature: Wineries
     And the response "title" should equal "Fanagoria"
     And the response "_links.wines" should have 1 item
 
-  Scenario: Delete a winery
+  Scenario: Delete a winery (also will delete all the related wines)
     Given the client is authorized
     And the set of "Winery" exist:
       | id | title     | uuid                                 |

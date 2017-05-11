@@ -23,14 +23,12 @@ App = Webmachine::Application.new do |app|
 
     add ['wineries'], WineriesResource
     add ['wineries', :id], WineryResource
-    # add ['wineries', :winery_id, 'wines'], WinesResource
 
     add ['wines'], WinesResource
     add ['wines', :id], WineResource
 
-    # add ['wines', :id, 'reviews'], WineReviewsResource
-
-    # add ['user', :id, 'reviews'], UserReviewsResource
+    add ['wines', :wine_id, 'reviews'], ReviewsResource
+    add ['wines', :wine_id, 'reviews', :id], ReviewResource
 
     add ['login'], LoginResource
     add ['signup'], SignupResource

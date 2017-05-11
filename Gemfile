@@ -11,6 +11,8 @@ gem 'sqlite3'
 gem 'tilt-jbuilder'
 
 group :development, :test do
+  gem 'byebug'
+
   gem 'reek'
   gem 'rubocop'
 

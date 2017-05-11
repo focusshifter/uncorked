@@ -24,7 +24,7 @@ Feature: Log in and sign up users
       }
       """
 
-  Scenario: Log in an existing user
+  Scenario: Log in as an existing user
     Given the set of "User" exist:
       | email            | name      |
       | test@example.net | Test User |

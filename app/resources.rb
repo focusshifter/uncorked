@@ -7,6 +7,9 @@ RESOURCES = %w[
   wines
   wine
 
+  reviews
+  review
+
   entrypoint
   signup
   login

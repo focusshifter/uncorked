@@ -118,8 +118,6 @@ Feature: Wines
     And the response should have "id"
     And the response "_links.winery.href" should equal "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
 
-  Scenario: Review a selected wine
-  Scenario: View a selected wine with reviews
   Scenario: Delete a wine
     Given the client is authorized
     And the set of "Winery" exist:

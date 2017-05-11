@@ -1,5 +1,9 @@
 require 'jwt'
 
+# = BaseResource
+#
+# A basic resource that also handles JWT auth for now.
+# TODO: Move JWT logic to a separate module.
 class BaseResource < Webmachine::Resource
   include Webmachine::Linking::Urlify
   include Webmachine::JbuilderView
@@ -55,7 +59,7 @@ class BaseResource < Webmachine::Resource
   def authorize(token)
     auth = JWT.decode(token, auth_secret, true, algorithm: 'HS256').first
 
-    @current_user = User.find(auth['user_id'])
+    @current_user = User.find(auth['user_id']).first
   end
 
   def generate_token(user)
