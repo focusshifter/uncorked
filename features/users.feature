@@ -4,7 +4,8 @@ Feature: Log in and sign up users
     When the client does a POST request to "/signup" with the following content:
       """
       {
-        "email": "test@example.net"
+        "email": "test@example.net",
+        "name": "Test User"
       }
       """
     Then the response status should be "201"
@@ -18,14 +19,15 @@ Feature: Log in and sign up users
             "title": "Signup"
           }
         },
-        "email": "test@example.net"
+        "email": "test@example.net",
+        "name": "Test User"
       }
       """
 
   Scenario: Log in an existing user
     Given the set of "User" exist:
-      | email            |
-      | test@example.net |
+      | email            | name      |
+      | test@example.net | Test User |
     When the client does a POST request to "/login" with the following content:
       """
       {

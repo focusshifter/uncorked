@@ -11,7 +11,7 @@ When(/^the client does a DELETE request to "([^"]*)"$/) do |path|
 end
 
 Given(/^the client is authorized$/) do
-  User.create(email: 'test@example.net')
+  User.create(email: 'test@example.net', name: 'Test User')
 
   post '/login', '{"email": "test@example.net"}', 'CONTENT_TYPE' => 'application/json'
   token = JSON.parse(last_response.body).dig('token')
