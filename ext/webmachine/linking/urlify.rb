@@ -6,11 +6,17 @@ module Webmachine
     module Urlify
       include Webmachine::Linking::Resource::LinkHelpers
 
+      # Provides an absolute link for a given resource.
+      #
+      # Currently unused, remove :nocov: on first use.
+      #
+      # :nocov:
       def urlify(resource, vars = {})
         new_uri = request.base_uri
         new_uri.path = url_for(resource, vars)
         new_uri.to_s
       end
+      # :nocov:
     end
   end
 end
