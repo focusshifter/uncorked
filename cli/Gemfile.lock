@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    faraday (0.12.1)
+      multipart-post (>= 1.2, < 3)
+    fuzzyurl (0.2.2)
+    highline (1.7.8)
+    hyperresource (0.9.4)
+      faraday (>= 0.8.6)
+      fuzzyurl (= 0.2.2)
+      json
+      uri_template (>= 0.5.2)
+    json (2.1.0)
+    multipart-post (2.0.0)
+    uri_template (0.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  highline
+  hyperresource
+
+BUNDLED WITH
+   1.14.6
