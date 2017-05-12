@@ -40,8 +40,10 @@ Then(/^the response status should be "([^\"]*)"$/) do |status|
   begin
     expect(last_response.status).to eq(status.to_i)
   rescue RSpec::Expectations::ExpectationNotMetError => e
+    # :nocov:
     puts last_response.body
     raise e
+    # :nocov:
   end
 end
 
@@ -69,7 +71,9 @@ Then(/^the response should include the following:$/) do |json|
   begin
     expect(JSON.parse(last_response.body)).to include(JSON.parse(json))
   rescue RSpec::Expectations::ExpectationNotMetError => e
+    # :nocov:
     puts last_response.body
     raise e
+    # :nocov:
   end
 end
