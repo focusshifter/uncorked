@@ -33,6 +33,10 @@ Feature: Wines
                   "winery": {
                     "href": "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d",
                     "title": "Fanagoria"
+                  },
+                  "reviews": {
+                    "href": "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews",
+                    "title": "Reviews for Cru Lermont Saperavi"
                   }
                 },
                 "id": "e2ce9fb0-c26d-406c-84e2-77e6df725143",
@@ -47,6 +51,10 @@ Feature: Wines
                   "winery": {
                     "href": "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d",
                     "title": "Fanagoria"
+                  },
+                  "reviews": {
+                    "href": "/wines/ee799610-7d68-443a-88b4-2aeda45b5056/reviews",
+                    "title": "Reviews for NR Pinot Noir"
                   }
                 },
                 "id": "ee799610-7d68-443a-88b4-2aeda45b5056",
@@ -61,6 +69,10 @@ Feature: Wines
                   "winery": {
                     "href": "/wineries/c8ef659e-93dc-47d9-bd30-edf153aaf61e",
                     "title": "Abrau Durso"
+                  },
+                  "reviews": {
+                    "href": "/wines/c37f1e1d-3171-46c8-8da6-75360c5c906b/reviews",
+                    "title": "Reviews for Brut NV"
                   }
                 },
                 "id": "c37f1e1d-3171-46c8-8da6-75360c5c906b",
