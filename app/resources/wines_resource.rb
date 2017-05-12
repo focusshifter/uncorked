@@ -1,3 +1,7 @@
+# = WinesResource
+#
+# GET "/wines"
+# POST "/wines"
 class WinesResource < BaseResource
   def allowed_methods
     %w[GET HEAD POST]

@@ -1,3 +1,7 @@
+# = WineryResource
+#
+# GET "/winery/{id}"
+# DELETE "/winery/{id}"
 class WineryResource < BaseResource
   def allowed_methods
     %w[GET HEAD DELETE]

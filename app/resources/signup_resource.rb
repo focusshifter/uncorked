@@ -1,3 +1,6 @@
+# = SignupResource
+#
+# POST "/signup"
 class SignupResource < BaseResource
   def allowed_methods
     %w[POST]

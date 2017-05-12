@@ -1,3 +1,6 @@
+# = EntrypointResource
+#
+# GET "/"
 class EntrypointResource < BaseResource
   def allowed_methods
     %w[GET HEAD]

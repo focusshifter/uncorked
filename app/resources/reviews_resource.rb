@@ -1,5 +1,7 @@
-require 'byebug'
-
+# = ReviewsResource
+#
+# GET "/wines/{wine_id}/reviews"
+# POST "/wines/{wine_id}/reviews"
 class ReviewsResource < BaseResource
   def allowed_methods
     %w[GET HEAD POST]

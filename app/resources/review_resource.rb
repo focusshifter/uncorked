@@ -1,3 +1,7 @@
+# = ReviewResource
+#
+# GET "/wines/{wine_id}/reviews/{id}"
+# DELETE "/wines/{wine_id}/reviews/{id}"
 class ReviewResource < BaseResource
   def allowed_methods
     %w[GET HEAD DELETE]

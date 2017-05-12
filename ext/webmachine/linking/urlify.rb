@@ -1,5 +1,8 @@
 module Webmachine
   module Linking
+    # = Urlify
+    #
+    # Collection of helpers to make the resource-linking easier (in the future).
     module Urlify
       include Webmachine::Linking::Resource::LinkHelpers
 

@@ -41,7 +41,7 @@ class BaseResource < Webmachine::Resource
   end
 
   def auth_secret
-    ENV['AUTH_SECRET']
+    @auth_secret ||= ENV.fetch('UC_AUTH_SECRET')
   end
 
   def is_authorized?(authorization_header)
@@ -67,7 +67,7 @@ class BaseResource < Webmachine::Resource
   end
 
   def logged_in?
-    !!current_user
+    !current_user.nil?
   end
 
   def protected_resource?
