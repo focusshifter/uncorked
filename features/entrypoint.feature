@@ -22,6 +22,10 @@ Feature: Provide a root Entrypoint
           "login": {
             "href": "/login",
             "title": "Get an auth token"
+          },
+          "signup": {
+            "href": "/signup",
+            "title": "Register as a new user"
           }
         }
       }

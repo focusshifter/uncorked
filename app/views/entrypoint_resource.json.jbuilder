@@ -20,4 +20,9 @@ json._links do |l|
     login.href url_for(LoginResource)
     login.title 'Get an auth token'
   end
+
+  l.signup do |signup|
+    signup.href url_for(SignupResource)
+    signup.title 'Register as a new user'
+  end
 end
