@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'puma'
 gem 'rack'
 gem 'webmachine'
 gem 'webmachine-linking', github: 'Asmod4n/webmachine-linking'
