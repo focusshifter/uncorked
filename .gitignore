@@ -1,2 +1,2 @@
-coverage
-db/*.db
+api/coverage
+api/db/*.db
