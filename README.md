@@ -8,10 +8,9 @@ For now everyone is a superuser, as everyone is allowed to create or delete anyo
 
 # Stack, detailed
 
-Framework - Webmachine.
-Persistence layer - Sequel backed by SQLite3, easily replaceable with any RDBMS of choice.
-
-CLI - HAL-Client, HighLine.
+- Framework - Webmachine.
+- Persistence layer - Sequel backed by SQLite3, easily replaceable with any RDBMS of choice.
+- CLI - HAL-Client, HighLine.
 
 Total time spent - around 20 hours, most of it went into the tinkering with Webmachine.
 
