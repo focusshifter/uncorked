@@ -6,7 +6,7 @@ This is a sample HAL-enhanced JSON API that pretends to be a clone of Untappd, b
 `Users` are allowed to register, log in and manage `wineries`, `wines` and `reviews`.
 For now everyone is a superuser, as everyone is allowed to create or delete anyone's content (see 'Improvements' at the end of this document).
 
-# Stack, detailed
+## Stack, detailed
 
 - Framework - Webmachine.
 - Persistence layer - Sequel backed by SQLite3, easily replaceable with any RDBMS of choice.
