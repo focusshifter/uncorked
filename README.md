@@ -26,8 +26,8 @@ gem install bundler
 Install Git, clone the repository and seed the databases.
 ```
 sudo apt-get -y install git
-git clone https://github.com/focusshifter/wm-playground
-cd wm-playground/api
+git clone https://github.com/focusshifter/uncorked
+cd uncorked/api
 bundle install
 bundle exec ruby ./db/seed.rb
 ```
