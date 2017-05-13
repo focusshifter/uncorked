@@ -6,4 +6,5 @@ Metrics/LineLength:
 
 Metrics/BlockLength:
   Exclude:
+    - 'db/seed.rb'
     - '**/*.jbuilder'
