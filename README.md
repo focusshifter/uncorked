@@ -1,10 +1,12 @@
 = Uncorked, the API
+
 This is a sample HAL-enhanced JSON API that pretends to be a clone of Untappd, but for wine instead of beer.
 
 `Users` are allowed to register, log in and manage `wineries`, `wines` and `reviews`.
 For now everyone is a superuser, as everyone is allowed to create or delete anyone's content (see 'Improvements' at the end of this document).
 
 == Stack, detailed
+
 Framework - Webmachine.
 Persistence layer - Sequel backed by SQLite3, easily replaceable with any RDBMS of choice.
 
@@ -33,32 +35,38 @@ bundle exec ruby ./db/seed.rb
 ```
 
 === Set ENV vars
+
 Replace `uncorked_secret` with your own secret.
 ```
 $ export UC_AUTH_SECRET="uncorked_secret"
 ```
 
 == Run with WEBrick
+
 ```
 $ bundle exec ruby ./app.rb
 ```
 
 === Run with Puma
+
 ```
 $ bundle exec ruckup -p 3000
 ```
 Replace 3000 with required port number if needed.
 
 == Run tests
+
 ```
 $ bundle exec cucumber
 ```
 Coverage report could be found in `./coverage`.
 
 == Read the Cucumber features
+
 See `api/features/*.features`.
 
 == Use the command-line client
+
 ```
 cd cli
 bundle install
