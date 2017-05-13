@@ -12,7 +12,7 @@ Feature: Wineries
       {
         "_links": {
           "self": {
-            "href": "/wineries",
+            "href": "http://example.org/wineries",
             "title": "The collection of Wineries"
           }
         },
@@ -21,7 +21,7 @@ Feature: Wineries
             {
               "_links": {
                 "self": {
-                  "href": "/wineries/1360b914-b84e-4f7d-8c6e-b01d7b1e5b2f",
+                  "href": "http://example.org/wineries/1360b914-b84e-4f7d-8c6e-b01d7b1e5b2f",
                   "title": "Fanagoria"
                 }
               },
@@ -62,7 +62,7 @@ Feature: Wineries
       | 1  | Fanagoria | 7dabbec1-e299-4037-a027-428b15f7fe4d |
     When the client does a GET request to "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
     Then the response status should be "200"
-    And the response "_links.self.href" should equal "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
+    And the response "_links.self.href" should equal "http://example.org/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
     And the response "id" should equal "7dabbec1-e299-4037-a027-428b15f7fe4d"
     And the response "title" should equal "Fanagoria"
 

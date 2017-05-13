@@ -1,0 +1,14 @@
+Style/PredicateName:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 99
+
+# We're building menus here, most of the extra lines are presentation logic.
+Metrics/MethodLength:
+  Max: 20
+
+# Most of the methods are too complex for now.
+# TODO: split the code into manageable chunks and remove this suppression.
+Metrics/AbcSize:
+  Max: 20

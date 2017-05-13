@@ -1,28 +1,23 @@
 require 'highline'
-require 'hyper_resource'
-
-CLI = HighLine.new
-CLI.say 'Uncorked Client'
-
-api_root_path = CLI.ask('API root path?') { |q| q.default = 'http://localhost:3000' }
+require 'hal-client'
 
 require './actions/entrypoint_action'
 require './actions/winery_action'
-# require './actions/wine_action'
-# require './actions/review_action'
+require './actions/wine_action'
+require './actions/review_action'
 require './actions/user_action'
 
+# = UncorkedClient
+#
+# Shared API (hal-client) interface
 class UncorkedClient
   def initialize(root_path)
     @root_path = root_path
-    @headers = {
-      'Accept' => 'application/hal+json',
-      'Content-Type' => 'application/json'
-    }
+    @headers = {}
   end
 
-  def query
-    @api ||= hyperresource
+  def root
+    @api ||= client
   end
 
   def authorize(token)
@@ -30,7 +25,7 @@ class UncorkedClient
     auth_header = { 'Authorization' => "Bearer #{@token}" }
     @headers.merge! auth_header
 
-    renew_hyperresource
+    renew_client
   end
 
   def authorized?
@@ -39,13 +34,23 @@ class UncorkedClient
 
   private
 
-  def hyperresource
-    HyperResource.new(root: @root_path, headers: @headers)
+  def client
+    hal_client = HalClient.new(accept: 'application/hal+json',
+                               content_type: 'application/json',
+                               headers: @headers)
+    hal_client.get(@root_path)
   end
 
-  def renew_hyperresource
-    @api = hyperresource
+  def renew_client
+    @api = client
   end
+end
+
+CLI = HighLine.new
+CLI.say 'Welcome to Uncorked Client'
+
+api_root_path = CLI.ask('Set API root path (default will work in dev environment)') do |q|
+  q.default = 'http://localhost:3000'
 end
 
 API = UncorkedClient.new(api_root_path)

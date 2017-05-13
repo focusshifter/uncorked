@@ -1,25 +1,36 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    faraday (0.12.1)
-      multipart-post (>= 1.2, < 3)
-    fuzzyurl (0.2.2)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    hal-client (3.18.0)
+      addressable (~> 2.3)
+      http (>= 0.8.4, < 3.0)
+      multi_json (~> 1.9)
     highline (2.0.0.pre.develop.6)
-    hyperresource (0.9.4)
-      faraday (>= 0.8.6)
-      fuzzyurl (= 0.2.2)
-      json
-      uri_template (>= 0.5.2)
-    json (2.1.0)
-    multipart-post (2.0.0)
-    uri_template (0.7.0)
+    http (2.2.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.2)
+    http_parser.rb (0.6.0)
+    multi_json (1.12.1)
+    public_suffix (2.0.5)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  hal-client
   highline (~> 2.0.0.pre.develop.6)
-  hyperresource
 
 BUNDLED WITH
    1.14.6

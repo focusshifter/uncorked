@@ -18,7 +18,7 @@ Feature: Wines
         {
           "_links": {
             "self": {
-              "href": "/wines",
+              "href": "http://example.org/wines",
               "title": "The collection of Wines"
             }
           },
@@ -27,15 +27,15 @@ Feature: Wines
               {
                 "_links": {
                   "self": {
-                    "href": "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143",
+                    "href": "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143",
                     "title": "Cru Lermont Saperavi"
                   },
                   "winery": {
-                    "href": "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d",
+                    "href": "http://example.org/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d",
                     "title": "Fanagoria"
                   },
                   "reviews": {
-                    "href": "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews",
+                    "href": "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews",
                     "title": "Reviews for Cru Lermont Saperavi"
                   }
                 },
@@ -45,15 +45,15 @@ Feature: Wines
               {
                 "_links": {
                   "self": {
-                    "href": "/wines/ee799610-7d68-443a-88b4-2aeda45b5056",
+                    "href": "http://example.org/wines/ee799610-7d68-443a-88b4-2aeda45b5056",
                     "title": "NR Pinot Noir"
                   },
                   "winery": {
-                    "href": "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d",
+                    "href": "http://example.org/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d",
                     "title": "Fanagoria"
                   },
                   "reviews": {
-                    "href": "/wines/ee799610-7d68-443a-88b4-2aeda45b5056/reviews",
+                    "href": "http://example.org/wines/ee799610-7d68-443a-88b4-2aeda45b5056/reviews",
                     "title": "Reviews for NR Pinot Noir"
                   }
                 },
@@ -63,15 +63,15 @@ Feature: Wines
               {
                 "_links": {
                   "self": {
-                    "href": "/wines/c37f1e1d-3171-46c8-8da6-75360c5c906b",
+                    "href": "http://example.org/wines/c37f1e1d-3171-46c8-8da6-75360c5c906b",
                     "title": "Brut NV"
                   },
                   "winery": {
-                    "href": "/wineries/c8ef659e-93dc-47d9-bd30-edf153aaf61e",
+                    "href": "http://example.org/wineries/c8ef659e-93dc-47d9-bd30-edf153aaf61e",
                     "title": "Abrau Durso"
                   },
                   "reviews": {
-                    "href": "/wines/c37f1e1d-3171-46c8-8da6-75360c5c906b/reviews",
+                    "href": "http://example.org/wines/c37f1e1d-3171-46c8-8da6-75360c5c906b/reviews",
                     "title": "Reviews for Brut NV"
                   }
                 },
@@ -99,7 +99,7 @@ Feature: Wines
     Then the response status should be "201"
     And the response "title" should equal "Cru Lermont Saperavi"
     And the response should have "id"
-    And the response "_links.winery.href" should equal "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
+    And the response "_links.winery.href" should equal "http://example.org/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
 
   Scenario: Add a new winery without required fields
     Given the client is authorized
@@ -128,7 +128,7 @@ Feature: Wines
     Then the response status should be "200"
     And the response "title" should equal "Cru Lermont Saperavi"
     And the response should have "id"
-    And the response "_links.winery.href" should equal "/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
+    And the response "_links.winery.href" should equal "http://example.org/wineries/7dabbec1-e299-4037-a027-428b15f7fe4d"
 
   Scenario: Delete a wine
     Given the client is authorized

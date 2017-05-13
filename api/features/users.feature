@@ -15,7 +15,7 @@ Feature: Log in and sign up users
       {
         "_links": {
           "self": {
-            "href": "/signup",
+            "href": "http://example.org/signup",
             "title": "Signup"
           }
         },
@@ -33,7 +33,7 @@ Feature: Log in and sign up users
       {
         "_links": {
           "self": {
-            "href": "/login",
+            "href": "http://example.org/login",
             "title": "Login"
           }
         },

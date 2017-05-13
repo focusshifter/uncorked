@@ -2,12 +2,12 @@ json.ignore_nil!
 
 json._links do |l|
   l.self do |slf|
-    slf.href url_for(WineryResource, id: @winery.uuid)
+    slf.href urlify(WineryResource, id: @winery.uuid)
     slf.title @winery.title
   end
 
   l.wines @winery.wines do |wine|
-    json.href url_for(WineResource, id: wine.uuid)
+    json.href urlify(WineResource, id: wine.uuid)
     json.title wine.title
   end
 end

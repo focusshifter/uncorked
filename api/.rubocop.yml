@@ -3,3 +3,7 @@ Style/PredicateName:
 
 Metrics/LineLength:
   Max: 99
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.jbuilder'

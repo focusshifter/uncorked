@@ -18,7 +18,7 @@ Feature: Reviews
         {
           "_links": {
             "self": {
-              "href": "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews",
+              "href": "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews",
               "title": "Reviews for Cru Lermont Saperavi"
             }
           },
@@ -27,10 +27,10 @@ Feature: Reviews
               {
                 "_links": {
                   "self": {
-                    "href": "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews/f5bc3869-8cd5-476f-837f-d9fd31b7b7ef"
+                    "href": "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143/reviews/f5bc3869-8cd5-476f-837f-d9fd31b7b7ef"
                   },
                   "wine": {
-                    "href": "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143",
+                    "href": "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143",
                     "title": "Cru Lermont Saperavi"
                   }
                 },
@@ -63,7 +63,7 @@ Feature: Reviews
     And the response "summary" should equal "Smooth body, pleasant smell."
     And the response "rating" should equal 5
     And the response should have "id"
-    And the response "_links.wine.href" should equal "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143"
+    And the response "_links.wine.href" should equal "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143"
 
   Scenario: Add a new review without required fields
     Given the client is authorized
@@ -116,7 +116,7 @@ Feature: Reviews
     And the response "summary" should equal "Smooth body, pleasant smell."
     And the response "rating" should equal 5
     And the response should have "id"
-    And the response "_links.wine.href" should equal "/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143"
+    And the response "_links.wine.href" should equal "http://example.org/wines/e2ce9fb0-c26d-406c-84e2-77e6df725143"
 
   Scenario: Delete a review
     Given the client is authorized
