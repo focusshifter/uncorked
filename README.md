@@ -33,6 +33,7 @@ cd uncorked/api
 bundle install
 bundle exec ruby ./db/seed.rb
 ```
+Check that `./db/*.db` files were successfully created.
 
 ### Set ENV vars
 
@@ -61,7 +62,7 @@ $ bundle exec cucumber
 ```
 Coverage report could be found in `./coverage`.
 
-## Read the Cucumber features
+## Dive into the Cucumber features
 
 See `api/features/*.features`.
 
@@ -78,7 +79,7 @@ Authorize or register to gain access to `Browse Wines` and `Browse Wineries` act
 
 - Authorization: password-based log in procedure, user verification.
 - Resource access: adopt a role-based permission system.
-- Resource modification: allow to edit existing resources.
-- DB: replace SQLite with proper RDBMS and start using migrations.
+- Resource modification: allow users to edit existing resources.
+- DB: replace SQLite with proper RDBMS and document the DB management workflow (migrations etc).
 - CLI: implement missing functionality (for now - deleting resources).
-- CLI: exception handing, at bare minumum - when creating resources.
+- CLI: exception handling, at bare minumum - when creating resources.
