@@ -81,6 +81,7 @@ Authorize or register to gain access to `Browse Wines` and `Browse Wineries` act
 - Resource definitions: DRY the resources.
 - Resource access: adopt a role-based permission system.
 - Resource modification: allow users to edit existing resources.
+- Resource representation: replace JBuilder with Roar.
 - DB: replace SQLite with proper RDBMS and document the DB management workflow (migrations etc).
 - CLI: implement missing functionality (for now - deleting resources).
 - CLI: exception handling, at bare minumum - when creating resources.
