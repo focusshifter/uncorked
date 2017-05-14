@@ -78,6 +78,7 @@ Authorize or register to gain access to `Browse Wines` and `Browse Wineries` act
 ## Improvements, primary vectors
 
 - Authorization: password-based log in procedure, user verification.
+- Resource definitions: DRY the resources.
 - Resource access: adopt a role-based permission system.
 - Resource modification: allow users to edit existing resources.
 - DB: replace SQLite with proper RDBMS and document the DB management workflow (migrations etc).
